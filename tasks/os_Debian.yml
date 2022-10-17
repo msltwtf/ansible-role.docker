@@ -1,0 +1,46 @@
+---
+
+- name: Import docker repo key
+  ansible.builtin.apt_key:
+    url: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg"
+    state: present
+  become: True
+  tags:
+    - docker
+    - docker-repo
+    - docker-repo-key
+
+- name: Add docker repo
+  ansible.builtin.apt_repository:
+    filename: docker
+    repo: "deb https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ ansible_distribution_version }} stable"
+  become: True
+  tags:
+    - docker
+    - docker-repo
+
+- name: Install docker
+  ansible.builtin.apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
+    state: present
+    update_cache: True
+    cache_valid_time: 3600
+  become: True
+  tags:
+    - docker
+    - docker-install
+
+- name: Add users to docker group
+  ansible.builtin.user:
+    name: "{{ item }}"
+    group: docker
+    append: True
+  loop: "{{ docker_users }}"
+  become: True
+  tags:
+    - docker
+    - docker-user

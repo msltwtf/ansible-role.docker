@@ -1,2 +1,10 @@
 ---
 # tasks file for docker
+
+- name: Include OS specific tasks
+  ansible.builtin.import_tasks: "{{ lookup('ansible.builtin.first_found', params) }}"
+  vars:
+    params:
+      - "os_{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+      - "os_{{ ansible_distribution }}.yml"
+      - "os_{{ ansible_os_family }}.yml"
