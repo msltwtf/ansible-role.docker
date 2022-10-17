@@ -1,6 +1,6 @@
 # Ansible Role: java
 
-[![CI](https://github.com/msltwtf/ansible-role.replace_name/actions/workflows/ci.yml/badge.svg)](https://github.com/msltwtf/ansible-role.replace_name/actions/workflows/ci.yml)
+[![CI](https://github.com/msltwtf/ansible-role.docker/actions/workflows/ci.yml/badge.svg)](https://github.com/msltwtf/ansible-role.docker/actions/workflows/ci.yml)
 
 
 
@@ -25,7 +25,7 @@ None.
 ```yaml
 - hosts: all
   roles:
-    - msltwtf.replace_name
+    - msltwtf.docker
 ```
 
 # License
