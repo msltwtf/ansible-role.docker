@@ -26,7 +26,7 @@
 - name: Add docker repo
   ansible.builtin.apt_repository:
     filename: docker
-    repo: "deb https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ ansible_distribution_version }} stable"
+    repo: "deb https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable"
   become: True
   tags:
     - docker
