@@ -1,4 +1,4 @@
 ---
 # defaults file for docker
 
-docker_users: ["{{ ansible_user }}"]
+docker_users: ["{{ ansible_user_id }}"]

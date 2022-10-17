@@ -10,9 +10,9 @@ None.
 
 Available variables are listed below, along with default values from `defaults/main.yml`
 
-| Variable       | Default                  | Comment                                  |
-| :------------- | :----------------------- | :--------------------------------------- |
-| `docker_users` | `["{{ ansible_user }}"]` | Users that will be added to docker group |
+| Variable       | Default                     | Comment                                  |
+| :------------- | :-------------------------- | :--------------------------------------- |
+| `docker_users` | `["{{ ansible_user_id }}"]` | Users that will be added to docker group |
 
 # Dependencies
 
