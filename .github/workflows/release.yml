@@ -20,7 +20,7 @@ jobs:
           path: msltwtf.docker
 
       - name: Setup Python 3
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.x
 
